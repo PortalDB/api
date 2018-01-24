@@ -1,0 +1,23 @@
+version: '2.1'
+services:
+  zeppelin:
+    labels:
+      - "project=portal"
+    image: portaldb/zeppelin:latest
+    ports:
+      - "8080:8080"
+    volumes:
+      - zeppelinnotebook:/zeppelin/notebook
+      - zeppelinconf:/zeppelin/conf
+
+volumes:
+    zeppelinnotebook:
+        driver: local
+        labels:
+            - "project=portal"
+            - "service=zeppelin"
+    zeppelinconf:
+        driver: local
+        labels:
+            - "project=portal"
+            - "service=zeppelin"
